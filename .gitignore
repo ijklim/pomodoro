@@ -1,0 +1,16 @@
+.DS_Store
+node_modules/
+dist/
+*.log*
+test/unit/coverage
+test/e2e/reports
+
+# Development files such as psd for images
+__*/
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
