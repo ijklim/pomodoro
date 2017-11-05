@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <timer></timer>
+    
     <!-- <ul class='list-unstyled'>
       <li v-for='(interval, index) in pomodoroIntervals' :key='index'>
         #{{ index+1 }} Start {{ interval.name }}

@@ -21,12 +21,22 @@ const POMODORO_INTERVALS = [
 export default new Vuex.Store({
   state: {
     pomodoroIntervals: POMODORO_INTERVALS,
-    timer: POMODORO_INTERVALS[0].time
+    timer: POMODORO_INTERVALS[0].time,
+    timerIsOn: false
   },
 
-  actions: {
-    startTimer (interval) {
-      return 25
+  getters: {
+    isTimerOn: state => {
+      return state.timerIsOn
+    }
+  },
+
+  mutations: {
+    toggleTimer (state) {
+      state.timerIsOn = !state.timerIsOn
+    },
+    updateTimer (state) {
+      if (state.timerIsOn) state.timer--
     }
   }
 })

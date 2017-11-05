@@ -1,15 +1,21 @@
 <template>
-  <div class='row align-items-center'>
+  <div class='row align-items-center justify-content-center'>
     <div class="timer text-center col-12">
       {{ displayTimer }}
+      <timer-button></timer-button>
     </div>
   </div>
 </template>
 
 <script>
+import TimerButton from './TimerButton'
+
 export default {
   // PascalCase, e.g. ThisIsAnExample
   name: 'Timer',
+  components: {
+    TimerButton
+  },
 
   // variables
   data () {
@@ -27,12 +33,6 @@ export default {
 
       return minutes + ':' + seconds
     }
-  },
-
-  mounted () {
-    this.intervalName = setInterval(() => {
-      this.$store.state.timer--
-    }, 1000)
   }
 
 }

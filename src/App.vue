@@ -6,7 +6,13 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+
+  mounted () {
+    this.intervalName = setInterval(() => {
+      this.$store.commit('updateTimer')
+    }, 1000)
+  }
 }
 </script>
 
@@ -32,5 +38,9 @@ body {
     var(--color-background-light) 78%,
     var(--color-background) 100%
   );
+}
+
+button:hover {
+  cursor: pointer;
 }
 </style>
