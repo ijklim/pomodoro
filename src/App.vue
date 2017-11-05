@@ -1,12 +1,6 @@
 <template>
-  <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
-    <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
-      <router-view></router-view>
-    </main>
+  <div id="app" class='container'>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -17,38 +11,26 @@ export default {
 </script>
 
 <style>
+:root {
+  --color-background: #111;
+  --color-background-light: #222;
+  --color-background-lightest: #282828;
+}
+
+html {
+  height: 100%;
+}
+
 body {
-  margin: 0;
-}
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-
-main {
-  text-align: center;
-  margin-top: 40px;
-}
-
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #35495E;
-  color: #ffffff;
-}
-
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
+  color: white;
+  background-color: var(--color-background);
+  background: linear-gradient(
+    to bottom,
+    var(--color-background-light) 0%,
+    var(--color-background-lightest) 18%,
+    var(--color-background-lightest) 50%,
+    var(--color-background-light) 78%,
+    var(--color-background) 100%
+  );
 }
 </style>
