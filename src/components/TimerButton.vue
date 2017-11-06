@@ -3,7 +3,10 @@
     <button
       @click='click'
       class='btn btn-lg btn-block mt-3'
-      v-bind:class="{ 'btn-success': !this.$store.getters.isTimerOn, 'btn-warning': this.$store.getters.isTimerOn }"
+      v-bind:class="{
+        'btn-success': this.$store && !this.$store.getters.isTimerOn,
+        'btn-warning': this.$store && this.$store.getters.isTimerOn
+      }"
     >{{ buttonText }}</button>
   </div>
 </template>
@@ -20,7 +23,7 @@ export default {
   },
   computed: {
     buttonText () {
-      if (this.$store.getters.isTimerOn) {
+      if (this.$store && this.$store.getters.isTimerOn) {
         return 'Pause'
       } else {
         return 'Start Now'

@@ -25,13 +25,16 @@ export default {
   },
   computed: {
     displayTimer () {
-      let minutes = Math.floor(this.$store.state.timer / 60)
-      let seconds = this.$store.state.timer - minutes * 60
-      // Pad 0
-      minutes = ('0' + minutes).slice(-2)
-      seconds = ('0' + seconds).slice(-2)
+      // Without testing this.$store an error will be generated during unit test
+      if (this.$store) {
+        let minutes = Math.floor(this.$store.state.timer / 60)
+        let seconds = this.$store.state.timer - minutes * 60
+        // Pad 0
+        minutes = ('0' + minutes).slice(-2)
+        seconds = ('0' + seconds).slice(-2)
 
-      return minutes + ':' + seconds
+        return minutes + ':' + seconds
+      }
     }
   }
 
