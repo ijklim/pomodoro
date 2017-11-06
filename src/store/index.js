@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import * as getters from './getters'
+import * as mutations from './mutations'
+
 Vue.use(Vuex)
 
 // time is in seconds
@@ -18,25 +21,14 @@ const POMODORO_INTERVALS = [
   LONG_BREAK
 ]
 
+const state = {
+  pomodoroIntervals: POMODORO_INTERVALS,
+  timer: POMODORO_INTERVALS[0].time,
+  timerIsOn: false
+}
+
 export default new Vuex.Store({
-  state: {
-    pomodoroIntervals: POMODORO_INTERVALS,
-    timer: POMODORO_INTERVALS[0].time,
-    timerIsOn: false
-  },
-
-  getters: {
-    isTimerOn: state => {
-      return state.timerIsOn
-    }
-  },
-
-  mutations: {
-    toggleTimer (state) {
-      state.timerIsOn = !state.timerIsOn
-    },
-    updateTimer (state) {
-      if (state.timerIsOn) state.timer--
-    }
-  }
+  state,
+  getters,
+  mutations
 })
