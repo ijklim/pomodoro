@@ -3,7 +3,8 @@ jobs:
   build:
     working_directory: ~/tmp
     docker:
-      - image: circle/node:7
+      - image: circleci/node:7.10
+    
     steps:
       - checkout
 
@@ -20,5 +21,5 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-          
+
       - run: npm test
