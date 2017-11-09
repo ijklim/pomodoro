@@ -1,8 +1,8 @@
 <template>
   <div class='row align-items-center justify-content-center'>
-    <div class="timer text-center col-12">
-      {{ displayTimer }}
-      <timer-button></timer-button>
+    <div class='timer text-center col-12'>
+      <div v-bind:class="{ 'invisible': this.$store && !this.$store.state.showTimer }">{{ displayTimer }}</div>
+      <div><timer-button></timer-button></div>
     </div>
   </div>
 </template>
@@ -48,7 +48,19 @@ export default {
   }
 
   .timer {
-    font-size: 10rem;
+    font-size: 16rem;
     text-shadow: 0.5rem 0.5rem 0 #000;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .timer {
+      font-size: 13rem;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .timer {
+      font-size: 35vw;
+    }
   }
 </style>

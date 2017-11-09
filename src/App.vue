@@ -9,8 +9,14 @@ export default {
   name: 'app',
 
   mounted () {
+    // Should be turn off for productions
+    this.$store.commit('turnOnTestingParameters')
+
     this.intervalName = setInterval(() => {
       this.$store.commit('updateTimer')
+      if (this.$store.getters.isTimerOn && this.$store.getters.isIntervalCompleted) {
+        this.$store.commit('initiateNextInterval')
+      }
     }, 1000)
   }
 }
