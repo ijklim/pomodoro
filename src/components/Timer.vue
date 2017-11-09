@@ -1,20 +1,23 @@
 <template>
-  <div class='row align-items-center justify-content-center'>
+  <div class='row align-items-center'>
     <div class='timer text-center col-12'>
       <div v-bind:class="{ 'invisible': this.$store && !this.$store.state.showTimer }">{{ displayTimer }}</div>
-      <div><timer-button></timer-button></div>
+      <timer-sound></timer-sound>
+      <timer-button></timer-button>
     </div>
   </div>
 </template>
 
 <script>
 import TimerButton from './TimerButton'
+import TimerSound from './TimerSound'
 
 export default {
   // PascalCase, e.g. ThisIsAnExample
   name: 'Timer',
   components: {
-    TimerButton
+    TimerButton,
+    TimerSound
   },
 
   // variables

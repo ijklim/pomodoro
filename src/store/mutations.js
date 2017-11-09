@@ -12,12 +12,13 @@ export const initiateNextInterval = state => {
     // Prevent repeat executions
     state.timerIsOn = false
 
-    // TODO: Play sound
-
     // Blink counter
     let blinkTimer = setInterval(() => {
       state.showTimer = !state.showTimer
     }, 350)
+
+    // Play sound
+    state.playSound = true
 
     // Initialize next interval settings after a short timeout
     setTimeout(() => {
@@ -35,9 +36,13 @@ export const initiateNextInterval = state => {
   }
 }
 
+export const soundHasBeenPlayed = state => {
+  state.playSound = false
+}
+
 export const turnOnTestingParameters = state => {
   state.pomodoroIntervals = state.pomodoroIntervals.map(interval => {
-    interval.time = 3
+    interval.time = 10
     return interval
   })
   state.timer = state.pomodoroIntervals[0].time

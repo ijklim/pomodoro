@@ -24,6 +24,7 @@ const POMODORO_INTERVALS = [
 const state = {
   autostartNextInterval: false,
   currentIntervalIndex: 0,
+  playSound: false,
   pomodoroIntervals: POMODORO_INTERVALS,
   showTimer: true,
   timer: POMODORO_INTERVALS[0].time,
