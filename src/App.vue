@@ -1,5 +1,6 @@
 <template>
-  <div id="app" class='container'>
+  <div id="app" class='container-fluid'>
+    <h1 class='row p-2'>Pomodoro Timer</h1>
     <router-view></router-view>
   </div>
 </template>
@@ -17,6 +18,7 @@ export default {
       if (this.$store.getters.isTimerOn && this.$store.getters.isIntervalCompleted) {
         this.$store.commit('initiateNextInterval')
       }
+      // this.$store.state.playSound = !this.$store.state.playSound // Testing only
     }, 1000)
   }
 }
@@ -52,5 +54,9 @@ body {
 
 button:hover {
   cursor: pointer;
+}
+
+h1 {
+  background-color: black;
 }
 </style>
