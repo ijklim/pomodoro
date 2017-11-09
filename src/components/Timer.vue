@@ -47,20 +47,15 @@ export default {
     height: 90vh;
   }
 
+  /* To allow font to look decent for all screen sizes, Chrome renders slightly worse than other 2 */
   .timer {
-    font-size: 16rem;
-    text-shadow: 0.5rem 0.5rem 0 #000;
+    font-size: 21.3rem;
+    text-shadow: 0.5rem 1.0rem 0 #000;
   }
 
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1024px) {
     .timer {
-      font-size: 13rem;
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    .timer {
-      font-size: 35vw;
+      font-size: 32vw;
     }
   }
 </style>

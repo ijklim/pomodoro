@@ -23,6 +23,8 @@ export default {
 </script>
 
 <style>
+@import 'https://fonts.googleapis.com/css?family=Contrail+One';
+
 :root {
   --color-background: #111;
   --color-background-light: #222;
@@ -44,6 +46,8 @@ body {
     var(--color-background-light) 78%,
     var(--color-background) 100%
   );
+  font-family: 'Contrail One';
+  text-rendering: optimizeLegibility;
 }
 
 button:hover {
