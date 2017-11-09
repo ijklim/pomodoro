@@ -35,7 +35,7 @@ export default {
         } else if (store.getters.isTimerOn) {
           text = `Pause ${intervalName}`
         } else if (store.state.timer < pomodoroIntervals[currentIntervalIndex].time) {
-          text = `Continue ${intervalName}`
+          text = `Resume ${intervalName}`
         } else {
           text = `Start ${intervalName}`
         }
