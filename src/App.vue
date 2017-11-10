@@ -14,7 +14,7 @@ export default {
     this.$store.commit('turnOnTestingParameters')
 
     this.intervalName = setInterval(() => {
-      this.$store.commit('updateTimer')
+      if (this.$store.getters.isTimerOn) this.$store.commit('updateTimer')
       if (this.$store.getters.isTimerOn && this.$store.getters.isIntervalCompleted) {
         this.$store.commit('initiateNextInterval')
       }

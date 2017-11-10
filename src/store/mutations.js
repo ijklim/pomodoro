@@ -3,7 +3,7 @@ export const toggleTimer = state => {
 }
 
 export const updateTimer = state => {
-  if (state.timerIsOn && state.timer > 0) state.timer--
+  if (state.timer > 0) state.timer--
 }
 
 // Previous interval is over, play sound, flash counter, and set timer to next interval
