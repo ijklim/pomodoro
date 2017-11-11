@@ -1,5 +1,6 @@
 <template>
-  <div class='col-2 align-self-center text-right'>
+  <div class='col-4 align-self-center text-right pr-0'>
+    <button class='btn btn-link' @click='clickAutostart' v-html='autostartIcon' title='Toggle autostart next interval'></button>
     <button class='btn btn-link' @click='clickSound' v-html='soundIcon' title='Toggle sound'></button>
   </div>
 </template>
@@ -15,6 +16,22 @@ export default {
     }
   },
   computed: {
+    autostartIcon () {
+      const SVG_AUTOSTART = '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+                            'stroke-linecap="round" stroke-linejoin="round"> ' +
+                            '<polyline points="23 4 23 10 17 10"></polyline> ' +
+                            '<polyline points="1 20 1 14 7 14"></polyline> ' +
+                            '<path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path> ' +
+                            '</svg>'
+      const SVG_MANUALSTART = '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+                            'stroke-linecap="round" stroke-linejoin="round"> ' +
+                            '<line x1="1" y1="1" x2="23" y2="23" class=""></line> ' +
+                            '<polyline points="23 4 23 10 17 10"></polyline> ' +
+                            '<polyline points="1 20 1 14 7 14"></polyline> ' +
+                            '<path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path> ' +
+                            '</svg>'
+      return (this.$store && this.$store.state.autostartNextInterval) ? SVG_AUTOSTART : SVG_MANUALSTART
+    },
     soundIcon () {
       const SVG_MUTE = '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" ' +
                        'stroke-linecap="round" stroke-linejoin="round"> ' +
@@ -28,6 +45,9 @@ export default {
     }
   },
   methods: {
+    clickAutostart () {
+      this.$store.commit('toggleAutostart')
+    },
     clickSound () {
       this.$store.commit('toggleSound')
     }
@@ -37,4 +57,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.btn {
+  color: orange;
+}
+
+.btn:hover {
+  color: #FED8B1;
+}
 </style>

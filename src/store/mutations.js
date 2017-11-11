@@ -1,5 +1,17 @@
+export const toggleAutostart = state => {
+  state.autostartNextInterval = !state.autostartNextInterval
+}
+
+export const toggleSound = state => {
+  state.soundIsOn = !state.soundIsOn
+}
+
 export const toggleTimer = state => {
   state.timerIsOn = !state.timerIsOn
+}
+
+export const soundHasBeenPlayed = state => {
+  state.playSound = false
 }
 
 export const updateTimer = state => {
@@ -36,19 +48,14 @@ export const initiateNextInterval = state => {
   }
 }
 
-export const toggleSound = state => {
-  state.soundIsOn = !state.soundIsOn
-}
-
-export const soundHasBeenPlayed = state => {
-  state.playSound = false
-}
-
+/* ------------------------
+   Developer Only functions
+   ------------------------ */
 export const turnOnTestingParameters = state => {
   state.pomodoroIntervals = state.pomodoroIntervals.map(interval => {
     interval.time = 5
     return interval
   })
   state.timer = state.pomodoroIntervals[0].time
-  state.autostartNextInterval = true
+  // state.autostartNextInterval = true
 }
