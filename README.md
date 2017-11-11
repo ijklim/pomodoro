@@ -2,6 +2,13 @@
 
 > A Vue.js project
 
+## Technologies
+
+* Vue.js 2.0
+* Vue Router
+* Vuex
+* Bootstrap 4 Beta
+
 ## Build Setup
 
 ``` bash
