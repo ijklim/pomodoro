@@ -27,7 +27,7 @@ export default {
       // if (this.$store ? this.$store.state.playSound : false)
       if (data === true) {
         this.$store.commit('soundHasBeenPlayed')
-        document.getElementById('timer-sound').play()
+        if (this.$store.state.soundIsOn) document.getElementById('timer-sound').play()
       }
     }
   }

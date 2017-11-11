@@ -1,13 +1,21 @@
 <template>
   <div id="app" class='container-fluid'>
-    <h1 class='row p-2'>Pomodoro Timer</h1>
+    <header class='row header'>
+      <h1 class='col pt-2'>Pomodoro Timer</h1>
+      <switch-sound></switch-sound>
+    </header>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import SwitchSound from './components/SwitchSound'
+
 export default {
   name: 'app',
+  components: {
+    SwitchSound
+  },
 
   mounted () {
     // Should be turn off for productions
@@ -26,6 +34,7 @@ export default {
 
 <style>
 @import 'https://fonts.googleapis.com/css?family=Contrail+One';
+@import './assets/css/bootstrap-switch.css';
 
 :root {
   --color-background: #111;
@@ -56,7 +65,7 @@ button:hover {
   cursor: pointer;
 }
 
-h1 {
+header {
   background-color: black;
 }
 </style>
