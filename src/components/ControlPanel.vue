@@ -1,13 +1,13 @@
 <template>
   <div class='col-2 align-self-center text-right'>
-    <button class='btn btn-link' @click='click' v-html='soundIcon' title='Toggle sound'></button>
+    <button class='btn btn-link' @click='clickSound' v-html='soundIcon' title='Toggle sound'></button>
   </div>
 </template>
 
 <script>
 export default {
   // PascalCase, e.g. ThisIsAnExample
-  name: 'SwitchSound',
+  name: 'ControlPanel',
 
   // variables
   data () {
@@ -28,7 +28,7 @@ export default {
     }
   },
   methods: {
-    click () {
+    clickSound () {
       this.$store.commit('toggleSound')
     }
   }

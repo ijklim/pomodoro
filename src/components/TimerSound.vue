@@ -20,14 +20,24 @@ export default {
   computed: {
     playSound () {
       return this.$store ? this.$store.state.playSound : false
+    },
+    soundIsOn () {
+      return this.$store ? this.$store.state.soundIsOn : false
     }
   },
   watch: {
     playSound: function (data) {
-      // if (this.$store ? this.$store.state.playSound : false)
       if (data === true) {
         this.$store.commit('soundHasBeenPlayed')
         if (this.$store.state.soundIsOn) document.getElementById('timer-sound').play()
+      }
+    },
+    soundIsOn: function (data) {
+      if (data === false) {
+        // Stop sound that could potential be playing
+        this.$store.commit('soundHasBeenPlayed')
+        document.getElementById('timer-sound').pause()
+        document.getElementById('timer-sound').currentTime = 0
       }
     }
   }

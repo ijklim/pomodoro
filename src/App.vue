@@ -2,19 +2,19 @@
   <div id="app" class='container-fluid'>
     <header class='row header'>
       <h1 class='col pt-2'>Pomodoro Timer</h1>
-      <switch-sound></switch-sound>
+      <control-panel></control-panel>
     </header>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import SwitchSound from './components/SwitchSound'
+import ControlPanel from './components/ControlPanel'
 
 export default {
   name: 'app',
   components: {
-    SwitchSound
+    ControlPanel
   },
 
   mounted () {
