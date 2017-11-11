@@ -1,8 +1,9 @@
 <template>
-  <div class='row align-items-center'>
-    <div class='timer text-center col-12'>
+  <div class='col-12'>
+    <div class='timer text-center'>
       <div v-bind:class="{ 'invisible': this.$store && !this.$store.state.showTimer }">{{ displayTimer }}</div>
       <timer-sound></timer-sound>
+      <timer-log></timer-log>
       <timer-button></timer-button>
     </div>
   </div>
@@ -10,6 +11,7 @@
 
 <script>
 import TimerButton from './TimerButton'
+import TimerLog from './TimerLog'
 import TimerSound from './TimerSound'
 
 export default {
@@ -17,6 +19,7 @@ export default {
   name: 'Timer',
   components: {
     TimerButton,
+    TimerLog,
     TimerSound
   },
 
@@ -46,10 +49,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .row {
-    height: 90vh;
-  }
-
   /* To allow font to look decent for all screen sizes, Chrome renders slightly worse than other 2 */
   .timer {
     font-size: 21.3rem;

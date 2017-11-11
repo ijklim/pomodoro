@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello row align-items-center">
     <timer></timer>
   </div>
 </template>
@@ -26,4 +26,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.hello {
+  min-height: 90vh;
+}
 </style>
