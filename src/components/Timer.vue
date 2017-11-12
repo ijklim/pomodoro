@@ -2,10 +2,10 @@
   <div class='col-12'>
     <div class='timer text-center'>
       <div v-bind:class="{ 'invisible': this.$store && !this.$store.state.showTimer }">{{ displayTimer }}</div>
-      <timer-sound></timer-sound>
-      <timer-log></timer-log>
       <timer-button></timer-button>
     </div>
+    <timer-sound></timer-sound>
+    <timer-log></timer-log>
   </div>
 </template>
 

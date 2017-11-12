@@ -18,6 +18,10 @@ export const updateTimer = state => {
   if (state.timer > 0) state.timer--
 }
 
+export const openLog = state => {
+  state.showLog = true
+}
+
 // Previous interval is over, play sound, flash counter, and set timer to next interval
 export const initiateNextInterval = state => {
   if (state.timerIsOn) {

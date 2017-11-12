@@ -26,6 +26,7 @@ const state = {
   currentIntervalIndex: 0,
   playSound: false,
   pomodoroIntervals: POMODORO_INTERVALS,
+  showLog: false,
   showTimer: true,
   soundIsOn: true,
   timer: POMODORO_INTERVALS[0].time,

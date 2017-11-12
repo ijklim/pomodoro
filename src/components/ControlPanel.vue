@@ -1,5 +1,15 @@
 <template>
-  <div class='col-4 align-self-center text-right pr-0'>
+  <div class='col-6 align-self-center text-right pr-0'>
+    <button class='btn btn-link' @click='clickShowLog' title='Show Log'>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="8" y1="6" x2="21" y2="6"></line>
+        <line x1="8" y1="12" x2="21" y2="12"></line>
+        <line x1="8" y1="18" x2="21" y2="18"></line>
+        <line x1="3" y1="6" x2="3" y2="6"></line>
+        <line x1="3" y1="12" x2="3" y2="12"></line>
+        <line x1="3" y1="18" x2="3" y2="18"></line>
+      </svg>
+    </button>
     <button class='btn btn-link' @click='clickAutostart' v-html='autostartIcon' title='Toggle autostart next interval'></button>
     <button class='btn btn-link' @click='clickSound' v-html='soundIcon' title='Toggle sound'></button>
   </div>
@@ -47,6 +57,9 @@ export default {
   methods: {
     clickAutostart () {
       this.$store.commit('toggleAutostart')
+    },
+    clickShowLog () {
+      this.$store.commit('openLog')
     },
     clickSound () {
       this.$store.commit('toggleSound')
