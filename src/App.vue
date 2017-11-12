@@ -1,7 +1,7 @@
 <template>
   <div id="app" class='container-fluid'>
     <header class='row header'>
-      <h1 class='col pt-2'>Pomodoro Timer</h1>
+      <h1 class='col-6 pt-2'>Pomodoro<span class='d-none d-sm-inline'> Timer</span></h1>
       <control-panel></control-panel>
     </header>
     <router-view></router-view>
