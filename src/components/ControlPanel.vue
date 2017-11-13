@@ -86,6 +86,7 @@ export default {
 <style scoped>
 .btn {
   color: orange;
+  padding-left: 0px;  /* Too much spacing between buttons */
 }
 
 .btn:hover {
