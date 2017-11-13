@@ -7,7 +7,7 @@
 * Vue.js 2.0
 * Vue Router
 * Vuex
-* Bootstrap 4 Beta (css only)
+* Bootstrap 4 Beta 2 (css only)
 * Bootstrap Vue
 
 ## Features
