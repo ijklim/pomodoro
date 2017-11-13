@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 import Timer from './Timer'
 
 export default {
@@ -16,11 +16,11 @@ export default {
   data () {
     return {
     }
-  },
-  computed: mapState({
-    timer: state => state.timer,
-    pomodoroIntervals: state => state.pomodoroIntervals
-  })
+  }
+  // computed: mapState({
+  //   timer: state => state.timer,
+  //   pomodoroIntervals: state => state.pomodoroIntervals
+  // })
 }
 </script>
 
