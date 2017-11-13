@@ -19,7 +19,7 @@ export default {
 
   mounted () {
     // Should be turn off for productions
-    this.$store.commit('turnOnTestingParameters')
+    // this.$store.commit('turnOnTestingParameters')
 
     this.intervalName = setInterval(() => {
       if (this.$store.getters.isTimerOn) this.$store.commit('updateTimer')
