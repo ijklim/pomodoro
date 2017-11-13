@@ -1,18 +1,40 @@
 <template>
   <div>
-    <b-modal id="modal1" title="Bootstrap-Vue" v-model="showLog">
-      <p class="my-4">Hello from modal!</p>
+    <b-modal
+      title='Log'
+      v-model='showLog'
+      :hide-footer=true
+      :header-bg-variant='headerBgVariant'
+      :header-text-variant='headerTextVariant'
+      :body-text-variant='bodyTextVariant'
+      :busy=true
+    >
+      <table class='table table-bordered table-sm'>
+        <thead class='thead-dark'>
+          <tr>
+            <th>Interval</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for='(logItem, index) in log' :key='index' :class='{ "table-success": logItem.name === "Pomodoro" }'>
+            <td>{{ logItem.name }}</td>
+            <td>{{ isNaN(logItem.startTime) ? logItem.startTime : '...' }}</td>
+            <td>{{ isNaN(logItem.endTime) ? logItem.endTime : '...' }}</td>
+          </tr>
+        </tbody>
+      </table>
     </b-modal>
   </div>
 </template>
 
 <script>
-// import BootstrapVue from 'bootstrap-vue'
+// Ref: https://bootstrap-vue.js.org/docs/components/modal
 import bButton from 'bootstrap-vue/es/components/button/button'
 import bModal from 'bootstrap-vue/es/components/modal/modal'
 
 export default {
-  // PascalCase, e.g. ThisIsAnExample
   name: 'TimerLog',
   components: {
     bButton,
@@ -23,7 +45,10 @@ export default {
   data () {
     return {
       log: [],
-      modelShow: false
+      modelShow: false,
+      headerBgVariant: 'light',
+      headerTextVariant: 'dark',
+      bodyTextVariant: 'dark'
     }
   },
   computed: {
@@ -47,39 +72,38 @@ export default {
   watch: {
     currentIntervalIndex: function (data) {
       // Set end time
-      let previousIntervalIndex = this.log.length - 1
-      this.log[previousIntervalIndex].endTime = (new Date()).toLocaleTimeString()
+      this.log[0].endTime = (new Date()).toLocaleTimeString()
 
-      // New log entry
-      this.log.push(
-        Object.assign(
-          {
-            startTime: (new Date()).toLocaleTimeString(),
-            endTime: 0
-          },
-          this.$store.state.pomodoroIntervals[data]
-        )
-      )
+      // New log entry at the FRONT of the array
+      this.addToLog(data)
     },
     isTimerOn: function (data) {
-      // Probably needed only for the first start time
-      if (data === true && this.log[this.log.length - 1].startTime === 0) {
-        this.log[this.log.length - 1].startTime = (new Date()).toLocaleTimeString()
+      if (data === true && this.log[0].startTime === 0) {
+        // Timer is on and start time has not been set
+        // Scenario #1: When app first started
+        // Scenario #2: Autostart Next Interval is off, user clicks on Start
+        this.log[0].startTime = (new Date()).toLocaleTimeString()
+      }
+    }
+  },
+  methods: {
+    addToLog: function (intervalIndex) {
+      if (this.$store) {
+        // Note: New log entry is added to the FRONT of the array
+        this.log.unshift(
+          Object.assign(
+            {
+              startTime: this.isTimerOn ? (new Date()).toLocaleTimeString() : 0,
+              endTime: 0
+            },
+            this.$store.state.pomodoroIntervals[intervalIndex]
+          )
+        )
       }
     }
   },
   mounted () {
-    if (this.$store) {
-      this.log.push(
-        Object.assign(
-          {
-            startTime: this.$store.getters.timerIsOn ? new Date() : 0,
-            endTime: 0
-          },
-          this.$store.state.pomodoroIntervals[0]
-        )
-      )
-    }
+    this.addToLog(0)
   }
 }
 </script>
