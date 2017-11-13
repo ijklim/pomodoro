@@ -2,12 +2,22 @@
 
 > A Vue.js project
 
-## Technologies
+## Technologies/Modules used
 
 * Vue.js 2.0
 * Vue Router
 * Vuex
-* Bootstrap 4 Beta
+* Bootstrap 4 Beta (css only)
+* Bootstrap Vue
+
+## Features
+
+* 25 minutes Pomodoro interval
+* 5 minutes Short Break interval
+* 20 minutes Long Break interval
+* Toggle Sound
+* Toggle Autostart Next Interval
+* Intervals completed log
 
 ## Build Setup
 
