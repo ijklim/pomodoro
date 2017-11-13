@@ -1,6 +1,6 @@
 <template>
-  <div id="app" class='container-fluid'>
-    <header class='row header'>
+  <div id='app' class='container-fluid'>
+    <header class='row'>
       <h1 class='col-6 pt-2'>Pomodoro<span class='d-none d-sm-inline'> Timer</span></h1>
       <control-panel></control-panel>
     </header>
@@ -34,7 +34,6 @@ export default {
 
 <style>
 @import 'https://fonts.googleapis.com/css?family=Contrail+One';
-@import './assets/css/bootstrap-switch.css';
 
 :root {
   --color-background: #111;
