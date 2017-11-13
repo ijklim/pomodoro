@@ -31,13 +31,11 @@
 
 <script>
 // Ref: https://bootstrap-vue.js.org/docs/components/modal
-import bButton from 'bootstrap-vue/es/components/button/button'
 import bModal from 'bootstrap-vue/es/components/modal/modal'
 
 export default {
   name: 'TimerLog',
   components: {
-    bButton,
     bModal
   },
 
