@@ -6,16 +6,19 @@
     </header>
     <toggle-alert></toggle-alert>
     <router-view></router-view>
+    <!-- <debug-window></debug-window> -->
   </div>
 </template>
 
 <script>
 import ControlPanel from './components/ControlPanel'
 import ToggleAlert from './components/ToggleAlert'
+import DebugWindow from './components/DebugWindow'
 
 export default {
   name: 'app',
   components: {
+    DebugWindow,
     ControlPanel,
     ToggleAlert
   },
@@ -49,11 +52,12 @@ html {
 }
 
 body {
+  background-repeat: repeat;
   color: white;
   background-color: var(--color-background);
   background: linear-gradient(
     to bottom,
-    var(--color-background-light) 0%,
+    var(--color-background) 0%,
     var(--color-background-lightest) 18%,
     var(--color-background-lightest) 50%,
     var(--color-background-light) 78%,
