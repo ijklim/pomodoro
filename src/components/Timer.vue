@@ -63,7 +63,7 @@ export default {
   }
 
   /* Most likely mobile landscape mode */
-  @media screen and (max-height: 700px) {
+  @media screen and (max-height: 700px) and (min-width: 700px) {
     .timer {
       font-size: 42vh;
     }
