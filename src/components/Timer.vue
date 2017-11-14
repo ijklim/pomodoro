@@ -49,15 +49,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  /* To allow font to look decent for all screen sizes, Chrome renders slightly worse than other 2 */
+  /* To allow font to look decent for all screen sizes, Chrome font quality slightly worse than other 2 browsers */
   .timer {
     font-size: 21.3rem;
     text-shadow: 0.5rem 1.0rem 0 #000;
   }
 
+  /* Landscape or portrait screen up to 1024px */
   @media screen and (max-width: 1024px) {
     .timer {
       font-size: 32vw;
+    }
+  }
+
+  /* Most likely mobile landscape mode */
+  @media screen and (max-height: 700px) {
+    .timer {
+      font-size: 42vh;
     }
   }
 </style>

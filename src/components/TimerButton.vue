@@ -1,5 +1,5 @@
 <template>
-  <div class='col-12 col-sm-10 mx-auto'>
+  <div class='col-12 col-sm-10 col-md-8 mx-auto'>
     <button
       @click='click'
       class='btn btn-lg btn-block'
