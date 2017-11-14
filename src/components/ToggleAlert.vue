@@ -9,7 +9,7 @@
       size='sm'
       class='text-center'
     >
-      {{ alertMessage }}
+      <div class='timer-alert' v-html='alertMessage'></div>
     </b-modal>
   </div>
 </template>
@@ -43,13 +43,15 @@ export default {
   },
   watch: {
     isAutostartOn: function (data) {
-      this.alertMessage = 'Autostart Next Interval is ' +
-                          (this.isAutostartOn ? 'ON' : 'OFF')
+      this.alertMessage = 'Autostart Next Interval is <span class="badge badge-' +
+                          (this.isAutostartOn ? 'success">On' : 'danger">Off') +
+                          '</span>'
       this.showAlert = true
     },
     soundIsOn: function (data) {
-      this.alertMessage = 'Sound is ' +
-                          (this.soundIsOn ? 'ON' : 'OFF')
+      this.alertMessage = 'Sound is <span class="badge badge-' +
+                          (this.soundIsOn ? 'success">On' : 'danger">Off') +
+                          '</span>'
       this.showAlert = true
     },
     showAlert: function (data) {
@@ -68,6 +70,11 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<!-- Unfortunately "scoped" cannot be applied to dynamic content
+     Add .timer-alert class to minimize impact -->
+<style>
+.timer-alert .badge {
+  font-weight: 400;
+  font-size: 1rem;
+}
 </style>
