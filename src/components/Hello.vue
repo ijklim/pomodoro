@@ -12,15 +12,7 @@ export default {
   name: 'hello',
   components: {
     Timer
-  },
-  data () {
-    return {
-    }
   }
-  // computed: mapState({
-  //   timer: state => state.timer,
-  //   pomodoroIntervals: state => state.pomodoroIntervals
-  // })
 }
 </script>
 
