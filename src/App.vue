@@ -1,20 +1,23 @@
 <template>
   <div id='app' class='container-fluid'>
     <header class='row'>
-      <h1 class='col-6 pt-2'>Pomodoro<span class='d-none d-sm-inline'> Timer</span></h1>
+      <h1 class='col-6 pt-2'>Pomodoro<span class='d-none d-md-inline'> Timer</span></h1>
       <control-panel></control-panel>
     </header>
+    <toggle-alert></toggle-alert>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import ControlPanel from './components/ControlPanel'
+import ToggleAlert from './components/ToggleAlert'
 
 export default {
   name: 'app',
   components: {
-    ControlPanel
+    ControlPanel,
+    ToggleAlert
   },
 
   mounted () {
