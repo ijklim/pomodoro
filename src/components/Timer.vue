@@ -1,7 +1,9 @@
 <template>
   <div class='col-12'>
     <div class='timer text-center'>
-      <div v-bind:class="{ 'invisible': this.$store && !this.$store.state.showTimer }">{{ displayTimer }}</div>
+      <div @click='click' v-bind:class="{ 'invisible': this.$store && !this.$store.state.showTimer }">
+        {{ displayTimer }}
+      </div>
       <timer-button></timer-button>
     </div>
     <timer-sound></timer-sound>
@@ -42,6 +44,11 @@ export default {
         return minutes + ':' + seconds
       }
     }
+  },
+  methods: {
+    click () {
+      this.$store.commit('toggleTimer')
+    }
   }
 
 }
@@ -67,5 +74,9 @@ export default {
     .timer {
       font-size: 42vh;
     }
+  }
+
+  .timer:hover {
+    cursor: pointer;
   }
 </style>
