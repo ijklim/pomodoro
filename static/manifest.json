@@ -1,20 +1,30 @@
 {
-  "name": "pomodoro",
-  "short_name": "pomodoro",
+  "name": "Pomodoro Timer",
+  "short_name": "Pomodoro",
   "icons": [
     {
-      "src": "/static/img/icons/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "/static/img/icons/android-chrome-128x128.jpg",
+      "sizes": "128x128",
+      "type": "image/jpg"
     },
     {
-      "src": "/static/img/icons/android-chrome-512x512.png",
+      "src": "/static/img/icons/android-chrome-144x144.jpg",
+      "sizes": "144x144",
+      "type": "image/jpg"
+    },
+    {
+      "src": "/static/img/icons/android-chrome-192x192.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    },
+    {
+      "src": "/static/img/icons/android-chrome-512x512.jpg",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/jpg"
     }
   ],
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "background_color": "#ffffff",
+  "theme_color": "#bdc3c7"
 }
