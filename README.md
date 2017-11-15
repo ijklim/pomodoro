@@ -1,6 +1,14 @@
 # Timer for Pomodoro Technique built on Vue.js 2.0 with PWA
 
-> A Vue.js project
+Built using Vue.js 2.0 with PWA (Progressive Web Apps) and Bootstrap 4.
+
+<p align="center">
+  <a href="https://ijklim.github.io" target="_blank">
+    <img src="https://github.com/ijklim/pomodoro/blob/master/static/img/screenshot.png" width="992px">
+    <br>
+    Live Demo
+  </a>
+</p>
 
 ## Technologies/Modules used
 
@@ -18,6 +26,7 @@
 * Toggle Sound
 * Toggle Autostart Next Interval
 * Intervals completed log
+* Responsive
 
 ## Build Setup
 
@@ -33,15 +42,6 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
