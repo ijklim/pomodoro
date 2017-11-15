@@ -1,7 +1,11 @@
 <template>
   <div class='col-12'>
     <div class='timer text-center'>
-      <div @click='click' v-bind:class="{ 'invisible': this.$store && !this.$store.state.showTimer }">
+      <div @click='click' v-bind:class="{
+        'invisible': this.$store && !this.$store.state.showTimer,
+        'text-break': this.isOnBreak
+        }"
+      >
         {{ displayTimer }}
       </div>
       <timer-button></timer-button>
@@ -43,6 +47,13 @@ export default {
 
         return minutes + ':' + seconds
       }
+    },
+    isOnBreak () {
+      if (this.$store) {
+        return !(this.$store.state.pomodoroIntervals[this.$store.state.currentIntervalIndex].name === 'Pomodoro')
+      } else {
+        return false
+      }
     }
   },
   methods: {
@@ -78,5 +89,9 @@ export default {
 
   .timer:hover {
     cursor: pointer;
+  }
+
+  .text-break {
+    color: #aaa;
   }
 </style>

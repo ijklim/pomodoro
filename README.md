@@ -23,6 +23,7 @@ Built using Vue.js 2.0 with PWA (Progressive Web Apps) and Bootstrap 4.
 * 25 minutes Pomodoro interval
 * 5 minutes Short Break interval
 * 20 minutes Long Break interval
+* Different timer text color during break time
 * Toggle Sound
 * Toggle Autostart Next Interval
 * Intervals completed log
