@@ -3,7 +3,7 @@
 Built using Vue.js 2.0 with PWA (Progressive Web Apps) and Bootstrap 4.
 
 <p align="center">
-  <a href="https://ijklim.github.io" target="_blank">
+  <a href="https://pomodoro-timer.github.io" target="_blank">
     <img src="https://github.com/ijklim/pomodoro/blob/master/static/img/screenshot.jpg" width="990px">
     <br>
     Live Demo
