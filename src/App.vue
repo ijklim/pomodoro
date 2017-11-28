@@ -23,6 +23,45 @@ export default {
     ToggleAlert
   },
 
+  computed: {
+    isAutostartOn () {
+      return this.$store ? this.$store.getters.isAutostartOn : false
+    },
+    soundIsOn () {
+      return this.$store ? this.$store.state.soundIsOn : false
+    }
+  },
+  watch: {
+    isAutostartOn: function (data) {
+      this.setURL()
+    },
+    soundIsOn: function (data) {
+      this.setURL()
+    }
+  },
+
+  methods: {
+    setURL: function () {
+      // Ref: https://router.vuejs.org/en/essentials/navigation.html
+      this.$router.push({
+        path: '/',
+        query: {
+          sound: this.soundIsOn ? 'on' : 'off',
+          autostart: this.isAutostartOn ? 'on' : 'off'
+        }
+      })
+    }
+  },
+
+  beforeMount () {
+    // Change only if different from default, check defaults in /store/index.js
+    if (this.$route.query.sound === 'off') {
+      this.$store.commit('toggleSound')
+    }
+    if (this.$route.query.autostart === 'on') {
+      this.$store.commit('toggleAutostart')
+    }
+  },
   mounted () {
     // Should be turn off for productions
     // this.$store.commit('turnOnTestingParameters')
