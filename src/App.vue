@@ -46,8 +46,9 @@ export default {
       this.$router.push({
         path: '/',
         query: {
-          sound: this.soundIsOn ? 'on' : 'off',
-          autostart: this.isAutostartOn ? 'on' : 'off'
+          autonext: this.isAutostartOn ? 'on' : 'off',
+          autostart: this.$route.query.autostart === 'on' ? 'on' : 'off',
+          sound: this.soundIsOn ? 'on' : 'off'
         }
       })
     }
@@ -58,8 +59,11 @@ export default {
     if (this.$route.query.sound === 'off') {
       this.$store.commit('toggleSound')
     }
-    if (this.$route.query.autostart === 'on') {
+    if (this.$route.query.autonext === 'on') {
       this.$store.commit('toggleAutostart')
+    }
+    if (this.$route.query.autostart === 'on') {
+      this.$store.commit('toggleTimer')
     }
   },
   mounted () {

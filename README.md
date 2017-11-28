@@ -34,7 +34,7 @@ Built using Vue.js 2.0 with PWA (Progressive Web Apps) and Bootstrap 4.
 To open this app in a small window on a desktop machine, type the following into the browser address bar or create a bookmark:
 **javascript:window.open('https://pomodoro-timer.github.io', 'pomodoro', 'height=350,width=400')**
 
-Sound and autostart can be turned on or off via query string, e.g. https://pomodoro-timer.github.io?sound=off&autostart=on
+Sound, autonext (autostart next interval) and autostart can be turned on or off via query string, e.g. https://pomodoro-timer.github.io?autonext=on&autostart=on&sound=off
 
 Note #1: Sometimes browser will skip the front **javascript:** during paste, type this in manually if necessary.
 
