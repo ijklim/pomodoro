@@ -8,7 +8,7 @@
     <router-view></router-view>
     <!-- <debug-window></debug-window> -->
     <footer>
-      Proudly brought to you by <a href="http://aiwebstudio.com" target="_blank">Active Improvement Web Studio</a>
+      Proudly brought to you by <a href="https://aiwebstudio.com" target="_blank">Active Improvement Web Studio</a>
     </footer>
   </div>
 </template>
