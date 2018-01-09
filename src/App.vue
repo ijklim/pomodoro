@@ -7,6 +7,9 @@
     <toggle-alert></toggle-alert>
     <router-view></router-view>
     <!-- <debug-window></debug-window> -->
+    <footer>
+      Proudly brought to you by <a href="http://aiwebstudio.com" target="_blank">Active Improvement Web Studio</a>
+    </footer>
   </div>
 </template>
 
@@ -116,5 +119,16 @@ button:hover {
 
 header {
   background-color: black;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  bottom: 3px;
+}
+
+a:hover {
+  text-decoration: none;
 }
 </style>

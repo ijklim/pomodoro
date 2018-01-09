@@ -2,12 +2,21 @@
   <div class='debug-window' v-if='!hide'>
     <button @click='hide = true'>&times;</button>
     IMPORTANT: This is suitable for development purpose only<br>
-    <span v-for='(property, index) in properties' :key='index' v-html='displayProperty(property.id, property.value)'>
+    <span
+      v-for='(property, index) in properties'
+      :key='index'
+      v-html='displayProperty(property.id, property.value)'
+    >
     </span>
   </div>
 </template>
 
 <script>
+/**
+ * Debug information for the DOM
+ *
+ * @param  {Boolean} show
+ */
 export default {
   // PascalCase, e.g. ThisIsAnExample
   name: 'DebugWindow',
@@ -28,6 +37,18 @@ export default {
     }
   },
 
+  // component Lifecycle hooks
+  mounted () {
+    this.hide = !this.show
+    this.setData()
+    window.addEventListener('resize', () => {
+      this.setData()
+    })
+    window.addEventListener('scroll', () => {
+      this.setData()
+    })
+  },
+
   // methods
   methods: {
     addToProperties (id, value = '') {
@@ -43,24 +64,19 @@ export default {
     setData () {
       this.properties = []
       this.addToProperties('[body] clientHeight', document.body.clientHeight)
+      this.addToProperties('[documentElement] documentElement.clientHeight', document.documentElement.clientHeight)
       this.addToProperties('[body] scrollHeight', document.body.scrollHeight)
+      this.addToProperties('[documentElement] scrollHeight', document.documentElement.scrollHeight)
       this.addToProperties('[window] innerHeight', window.innerHeight)
+      this.addToProperties('[window] scrollY', window.scrollY)
       this.addToProperties('break')
       this.addToProperties('[body] clientWidth', document.body.clientWidth)
+      this.addToProperties('[documentElement] documentElement.clientWidth', document.documentElement.clientWidth)
       this.addToProperties('[body] scrollWidth', document.body.scrollWidth)
+      this.addToProperties('[documentElement] scrollWidth', document.documentElement.scrollWidth)
       this.addToProperties('[window] innerWidth', window.innerWidth)
-      console.table(this.properties)
+      // console.table(this.properties)
     }
-  },
-
-  // component Lifecycle hooks
-  beforeCreate () {},
-  mounted () {
-    this.hide = !this.show
-    this.setData()
-    window.addEventListener('resize', () => {
-      this.setData()
-    })
   }
 }
 </script>
