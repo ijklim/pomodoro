@@ -1,3 +1,5 @@
+** This version is now outdated, new version can be found at https://github.com/ijklim/pomodoro-2020 **
+
 # Timer for Pomodoro Technique built on Vue.js 2.0 with PWA
 
 Built using Vue.js 2.0 with PWA (Progressive Web Apps) and Bootstrap 4.
